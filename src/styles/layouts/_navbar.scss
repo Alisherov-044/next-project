@@ -1,0 +1,9 @@
+.navbar {
+    @include d-flex(row, center, space-between);
+    position: relative;
+    width: 100%;
+
+    &__right {
+        @include d-flex(row, center, unset, 20px);
+    }
+}

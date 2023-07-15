@@ -1,0 +1,12 @@
+.button {
+    position: relative;
+    cursor: pointer;
+
+    &--primary {
+        @include d-flex(row, center, unset, 20px);
+        padding: 5px 10px;
+        color: $primary-bg;
+        background-color: $primary-btn;
+        border-radius: 10px;
+    }
+}

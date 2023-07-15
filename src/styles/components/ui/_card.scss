@@ -1,0 +1,76 @@
+.card {
+    @include d-flex(column, unset, unset);
+    position: relative;
+    width: 300px;
+    height: 350px;
+    padding: 20px;
+    background-color: $sidebar-light;
+    border: 1px solid #000;
+    border-radius: 10px;
+
+    &__header {
+        @include d-flex(row, center, unset, 15px);
+        padding-bottom: 20px;
+
+        .link-to-post {
+            @include d-flex(column, flex-end, unset);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: $primary-bg;
+
+            span {
+                font-size: 12px;
+            }
+        }
+
+        &-img .bi {
+            font-size: 42px;
+            color: $icon-light;
+        }
+
+        &-info {
+            @include d-flex(column, unset, unset);
+
+            .name {
+                font-size: 16px;
+                line-height: 120%;
+                font-weight: 600;
+                color: $primary-bg;
+            }
+
+            .email {
+                font-size: 14px;
+                line-height: 120%;
+                font-weight: 500;
+                color: $icon-light;
+            }
+        }
+    }
+
+    &__content {
+        @include d-flex(column, unset, unset, 5px);
+        flex: 1 1 auto;
+        border-top: 1px solid $icon;
+        padding-top: 20px;
+
+        .description {
+            flex-grow: 1;
+            padding-top: 5px;
+            color: $primary-bg
+        }
+
+        &-row {
+            @include d-flex(row, center, unset, 5px);
+
+            .bi {
+                color: $icon-light;
+            }
+
+            span {
+                color: $icon-light;
+                font-size: 13px;
+            }
+        }
+    }
+}

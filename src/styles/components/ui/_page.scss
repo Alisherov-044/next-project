@@ -1,0 +1,44 @@
+@use 'sass:color';
+
+.page-link {
+    @include d-flex(row, center, unset, 15px);
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 12px;
+    transition: all .3s ease;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%) rotate(45deg);
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid $primary-bg;
+        border-right: 1px solid $primary-bg;
+        opacity: 0;
+        transition: inherit;
+    }
+    
+    &:nth-child(odd) {
+        background-color: $sidebar-light;
+    }
+
+    &:hover {
+        background-color: color.adjust($sidebar-light, $lightness: 5%);
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &__icon,
+    &__name {
+        color: $primary-bg;
+    }
+
+    &.active > .page__icon {
+        color: $primary-btn;
+    }
+}

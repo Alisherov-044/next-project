@@ -1,0 +1,19 @@
+.list {
+    position: relative;
+
+    &.pages__list {
+        @include d-flex(column, unset, unset);
+        margin-top: 40px;
+    }
+
+    &.users__list,
+    &.posts__list {
+        @include d-flex(row, center, unset, 40px, wrap);
+    }
+
+    &.posts__list {
+        .card__content {
+            gap: 40px;
+        }
+    }
+}

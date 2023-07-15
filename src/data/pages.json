@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "icon": "<i className='bi bi-people'></i>",
+        "name": "Users",
+        "url": "/"
+    },
+    {
+        "id": 2,
+        "icon": "<i className='bi bi-signpost-2'></i>",
+        "name": "Posts",
+        "url": "/posts"
+    },
+    {
+        "id": 3,
+        "icon": "<i className='bi bi-list-task'></i>",
+        "name": "Todos",
+        "url": "/todos"
+    },
+    {
+        "id": 4,
+        "icon": "<i className='bi bi-journal-album'></i>",
+        "name": "Albums",
+        "url": "/albums"
+    },
+    {
+        "id": 5,
+        "icon": "<i className='bi bi-envelope'></i>",
+        "name": "Comments",
+        "url": "/comments"
+    }
+]

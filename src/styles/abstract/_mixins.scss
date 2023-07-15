@@ -1,0 +1,145 @@
+@mixin d-flex($direction, $align, $justify, $gap: 0, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+    gap: $gap;
+}
+
+@mixin d-flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin absolute-center($z-index: 1) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: $z-index;
+}
+
+@mixin absolute-corner($Y: top, $X: left) {
+    @if $Y != ('top' or 'bottom') {
+        @error '#{$Y} position should be `top` or `bottom`';
+    }
+
+    @if $X != ('right' or 'left') {
+        @error '#{$X} position should be `right` or `left`';
+    }
+
+    position: absolute;
+    $Y: 0;
+    $X: 0;
+}
+
+@mixin full-relative {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin full-absolute {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
+@mixin square($width, $height, $b-radius: 0) {
+    width: $width;
+    height: $height;
+    border-radius: $b-radius;
+}
+
+@mixin font($size, $l-height, $weight: 500) {
+    font-size: px-to-rem($size);
+    line-height: px-to-percent($l-height, $size);
+    font-weight: $weight;
+}
+
+@mixin font-adaptive($size, $min_size, $l-height, $weight) {
+  @include adaptive-value("font-size", $size, $min_size);
+  line-height: $l-height;
+  font-weight: $weight;
+}
+
+$maxWidth: 1920;
+$maxWidthContainer: 1440;
+@mixin adaptive-value($property, $startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+  #{$property}: $startSize + px;
+  @media (max-width:#{$maxWidthContainer + px}) {
+    #{$property}: calc(
+      #{$minSize + px} + #{$addSize} *
+        ((100vw - 320px) / #{$maxWidthContainer - 320})
+    );
+  }
+}
+
+@mixin padding($t-b, $l-r: $t-b) {
+    padding: px-to-rem($t-b) px-to-rem($l-r);
+}
+
+@mixin margin($t-b, $l-r: $t-b) {
+    margin: px-to-rem($t-b) px-to-rem($l-r);
+}
+
+@mixin img-normalize($positon: absolute, $width: 100%, $height: 100%, $z-index: 1, $obj-fit: cover, $obj-position: center) {
+    position: $positon;
+    width: $width;
+    height: $height;
+    z-index: $z-index;
+    object-fit: $obj-fit;
+    object-position: $obj-position;
+    aspect-ratio: 1 / 1;
+}
+
+@mixin breakpoint--sm($max-width: 480px) {
+    @media (max-width: $max-width) {
+       @content; 
+    }
+}
+
+@mixin breakpoint--sm-extra($max-width: 600px) {
+    @media (max-width: $max-width) {
+        @content; 
+    }
+}
+
+@mixin breakpoint--md($max-width: 768px) {
+    @media (max-width: $max-width) {
+        @content; 
+    }
+}
+
+@mixin breakpoint--lg($max-width: 900px) {
+    @media (max-width: $max-width) {
+        @content; 
+    }
+}
+
+@mixin breakpoint--x-lg($max-width: 1024px) {
+    @media (max-width: $max-width) {
+        @content; 
+    }
+}
+
+@mixin breakpoint--x-lg-extra($max-width: 1200px) {
+    @media (max-width: $max-width) {
+        @content; 
+    }
+}
+
+@mixin media($max-width) {
+    @media (max-width: #{$max-width + px}) {
+        @content;
+    }
+}

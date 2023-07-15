@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    @include full-relative;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+#__next {
+    @extend body;
+    @include d-flex(column, unset, unset);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bi {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+img {
+    @include img-normalize;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+button,
+input,
+textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.container {
+    position: relative;
+    max-width: calc(1100px + 40px);
+    padding-inline: 20px;
+    margin-inline: auto;
+}

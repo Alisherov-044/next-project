@@ -1,0 +1,33 @@
+.loading__wrapper {
+    @include d-flex(column, center, center, 10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: saturate(50%) blur(5px);
+}
+
+.loading-circle {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba(199, 194, 194, .5);
+    border-radius: 50%;
+
+    &__progress {
+        position: absolute;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        border-radius: inherit;
+        border: inherit;
+        border-color: transparent;
+        border-right-color: rgba(0, 0, 0, .5);
+    }
+}
+
+.loading-text {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 120%;
+}
